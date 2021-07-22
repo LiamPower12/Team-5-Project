@@ -12,8 +12,8 @@ r.forward(150)
 while r.scan_for_fire() == True:
      r.extinguish_fire()
 
-r.backward(150)
 r.right(385)
+r.backward(150)
 
 #room 4
 
