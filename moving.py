@@ -21,6 +21,7 @@ def room_num_1():
     r.left(100)
     r.forward(360)
     if r.read_marker() == 1:
+        #temp function
         r.left(675)
         r.forward(100)
         r.scan_for_people()
@@ -36,11 +37,12 @@ room_num_1()
 
 def room_num_2():
     if r.read_marker() == 1:
+        #temp function
         #put in movements to get robot from marker to fire
         while r.scan_for_fire() == True:
             r.extinguish_fire()
-    else:
-        r.forward(560)
+        #movements to leave fire room
+    r.forward(560)
 
 
 room_num_2()
@@ -49,10 +51,23 @@ def room_num_3():
     r.forward(440)
     r.rotate_counterclockwise(90)
     r.forward(1550)
+    if r.read_marker() == 1:
+        #move into room
+        #temp function
+        #move out of room
+    r.forward(440)
+    r.rotate_counterclockwise(90)
+    r.forward(1550)
 
 room_num_3()
 
 def room_num_4():
+    if r.read_marker() == 1:
+        #temp function
+        #move robot to fire
+        while r.scan_for_fire() == True:
+            r.extinguish_fire()
+        #move robot out of room
     r.forward(560)
     r.rotate_counterclockwise(86)
     r.forward(835)
@@ -63,22 +78,23 @@ def room_num_4():
 
 room_num_4()
 
-while r.scan_for_fire() == True:
-     r.extinguish_fire()
 
 def room_num_5():
+    if r.read_marker() == 1:
+        #temp function
+        #move robot to person
+        r.scan_for_people()
+        if r.scan_for_people() == True:
+            r.rescue_person()
+        #leave room
     r.left(1000)
     r.forward(210)
     r.rotate_counterclockwise(85)
     r.forward(450)
 
+
 room_num_5()
 
-#add movements for robot within room 5
-
-r.scan_for_people()
-if r.scan_for_people() == True:
-    r.rescue_person()
 
 def room_back():
     r.backward(450)
