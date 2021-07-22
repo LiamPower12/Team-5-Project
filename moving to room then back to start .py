@@ -13,6 +13,9 @@ def room_num_2():
 
 room_num_2()
 
+while r.scan_for_fire() == True:
+     r.extinguish_fire()
+
 def room_num_3():
     r.forward(440)
     r.rotate_counterclockwise(90)
@@ -30,6 +33,9 @@ def room_num_4():
     r.forward(700)
 
 room_num_4()
+
+while r.scan_for_fire() == True:
+     r.extinguish_fire()
 
 def room_num_5():
     r.left(1000)
