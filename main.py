@@ -22,8 +22,9 @@ def person1():
     r.forward(950)
 
 #moving from starting position to room 1
-r.forward(375)
-r.left(100)
+import moving
+moving.room_num_1()
+
 #add marker scanning function when it is made
 r.left(675)
 r.forward(100)
