@@ -60,7 +60,7 @@ def room_num_3():
     r.rotate_counterclockwise(90)
     r.forward(1660)
     r.read_marker()
-    while r.read_marker() == 2:
+    while r.read_marker() == 1:
         r.left(150)
         r.take_temperature
         l.append(r.take_temperature())
