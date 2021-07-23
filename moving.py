@@ -1,7 +1,8 @@
 import robot
 r = robot.RobotController()
 r.connect()
-r.take_temperature()
+
+l = []
 
 #person1/no_person1 will bring the robot to room two using different routes depending if there is a person
 #to be saved in room 1
@@ -25,6 +26,7 @@ def room_num_1():
     if r.read_marker() == 1:
         r.left(675)
         r.take_temperature()
+        l.append(r.take_temperature())
         r.forward(100)
         r.scan_for_people()
         if r.scan_for_people() == False:
@@ -42,6 +44,7 @@ def room_num_2():
     if r.read_marker() == 1:
         r.left(675)
         r.take_temperature
+        l.append(r.take_temperature())
         r.forward(150)
         r.scan_for_fire()
         while r.scan_for_fire() == True:
@@ -57,9 +60,10 @@ def room_num_3():
     r.rotate_counterclockwise(90)
     r.forward(1660)
     r.read_marker()
-    while r.read_marker() == 1:
+    while r.read_marker() == 2:
         r.left(150)
         r.take_temperature
+        l.append(r.take_temperature())
         r.right(250)
 
 
@@ -76,6 +80,7 @@ def room_num_4():
     if r.read_marker() == 1:
         r.forward(300)
         r.take_temperature
+        l.append(r.take_temperature())
         r.left(600)
         r.scan_for_fire()
         while r.scan_for_fire() == True:
@@ -92,6 +97,7 @@ def room_num_5():
     if r.read_marker() == 1:
         r.forward(300)
         r.take_temperature()
+        l.append(r.take_temperature())
         r.left(300)
         r.scan_for_people()
         if r.scan_for_people() == True:
@@ -113,13 +119,12 @@ def room_back():
     r.forward(1400)
 
 
-
 room_back()
 
+print(l)
+
 import matplotlib.pyplot as plt
-from math import sin, cos
-import numpy
-x = [1, 2, 3, 4, 5, 6]
-y = [sin(1), sin(2), sin(3), sin(4), sin(5), sin(6)]
+x = [1, 2, 3, 4, 5]
+y = [l[0], l[1], l[2], l[3], l[4]]
 plt.plot(x, y)
 plt.show()
